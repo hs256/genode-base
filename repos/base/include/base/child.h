@@ -209,6 +209,7 @@ class Genode::Child : protected Rpc_object<Parent>
 		Service                &_pd_service;
 		Service                &_ram_service;
 		Service                &_cpu_service;
+		Service	               &_irq_service;
 
 		/* heap for child-specific allocations using the child's quota */
 		Heap                    _heap;
@@ -410,7 +411,8 @@ class Genode::Child : protected Rpc_object<Parent>
 		      Child_policy           &policy,
 		      Service                &pd_service  = _parent_service(),
 		      Service                &ram_service = _parent_service(),
-		      Service                &cpu_service = _parent_service());
+		      Service                &cpu_service = _parent_service(),
+		      Service 		     &irq_service = _parent_service());
 
 		/**
 		 * Destructor

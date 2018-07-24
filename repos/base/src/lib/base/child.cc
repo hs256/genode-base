@@ -490,12 +490,14 @@ Child::Child(Dataspace_capability    elf_ds,
              Child_policy           &policy,
              Service                &pd_service,
              Service                &ram_service,
-             Service                &cpu_service)
+             Service                &cpu_service,
+	     Service		    &irq_service)
 try :
 	_pd(pd_cap), _ram(ram_cap), _cpu(cpu_cap),
 	_pd_service(pd_service),
 	_ram_service(ram_service),
 	_cpu_service(cpu_service),
+	_irq_service(irq_service),
 	_heap(&ram, &local_rm),
 	_entrypoint(entrypoint),
 	_parent_cap(_entrypoint.manage(this)),
